@@ -1,0 +1,24 @@
+{
+  "@class" : "org.apereo.cas.services.RegexRegisteredService",
+  "serviceId" : "^(https)://front.zonesion.com.*",
+  "name" : "FRONT",
+  "id" : 102,
+  "description" : "Servise to authenticate users at Reverse Proxy",
+  "evaluationOrder" : 10000,
+  "attributeReleasePolicy" : {
+    "@class" : "org.apereo.cas.services.ReturnAllowedAttributeReleasePolicy",
+    "allowedAttributes" : [ "java.util.ArrayList", [ "memberof", "email" ] ],
+
+    "authorizedToReleaseCredentialPassword" : false
+  },
+  "accessStrategy" : {
+    "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
+    "enabled" : true,
+    "requireAllAttributes" : false,
+    "ssoEnabled" : true,
+    "requiredAttributes" : {
+      "@class" : "java.util.HashMap",
+      "memberof" : [ "java.util.HashSet", [ "ROLE_USER", "ROLE_ADMIN" ] ]
+    }
+  }
+}

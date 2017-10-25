@@ -1,0 +1,13 @@
+{
+    "@class" : "org.apereo.cas.support.oauth.services.OAuthRegisteredService",
+    "id" : 101,
+    "name" : "OAuth2 Service for CASOAUTH2 application",
+    "serviceId" : "^(https)://(oauth2|front).zonesion.com(:8080/app|/app).*",
+    "clientId": "clientid",
+    "clientSecret": "clientSecret",
+    "bypassApprovalPrompt": true,
+    "attributeReleasePolicy" : {
+        "@class" : "org.apereo.cas.services.ReturnAllowedAttributeReleasePolicy",
+        "allowedAttributes" : [ "java.util.ArrayList", [ "memberof", "email","displayName"] ]
+    }
+}
